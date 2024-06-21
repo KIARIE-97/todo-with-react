@@ -1,5 +1,6 @@
 // 
 import  { useState } from 'react';
+import bgImage from '../assets/images/bg-desktop-dark.jpg';
 
 interface HeaderProps {
   addTodo: (text: string) => void;
@@ -16,7 +17,16 @@ function Header({ addTodo }: HeaderProps) {
   };
 
   return (
-    <header>
+    <header
+    style={{
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      objectFit: "cover",
+      backgroundPosition: "left",
+    }}
+    >
+       <h1>TODO</h1>
       <input
         type="text"
         value={inputValue}
