@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react'
+import {useReducer} from 'react'
 import './App.scss'
 import Header from './components/Header'
 import Todo from './components/Todo'
@@ -59,7 +59,7 @@ import Todo from './components/Todo'
       <>
         <Header addTodo={addTodo} />
         <Todo
-          todo={todos}
+          todos={todos}
           updateTodo={updateTodo}
           deleteTodo={deleteTodo}
           itemsLeft={itemsLeft}

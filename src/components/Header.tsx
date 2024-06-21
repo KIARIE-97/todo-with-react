@@ -1,25 +1,31 @@
-import './header.scss'
-// import icon from '../assets/images/icon-moon.svg'
+// 
+import  { useState } from 'react';
 
-function Header(addTodo) {
-  return (
-    <div>
-        <div className="header">
-            <div className="decs">
-            <h1>TODO</h1>
-         {/* <img src={icon} alt="" /> */}
-            </div>
-        <div className="job">
-            <form className='form'>
-                <input type="radio" id="radio" />
-                <input type="text" id="todo_input" placeholder='create a todo ...' />
-            </form>
-        </div>
-        </div>
-    </div>
-  )
+interface HeaderProps {
+  addTodo: (text: string) => void;
 }
 
-export default Header
-{/* <form className="form" onSubmit={handleSubmit}>
-<input type="text" placeholder='Add a joke' /> */}
+function Header({ addTodo }: HeaderProps) {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleAddTodo = () => {
+    if (inputValue.trim()) {
+      addTodo(inputValue);
+      setInputValue('');
+    }
+  };
+
+  return (
+    <header>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Add a new todo"
+      />
+      <button onClick={handleAddTodo}>Add</button>
+    </header>
+  );
+}
+
+export default Header;
