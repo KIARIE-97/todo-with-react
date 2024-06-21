@@ -1,0 +1,53 @@
+.header{
+    background-image:url("../assets/images/bg-desktop-dark.jpg") ;
+    // background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    height: 300px;
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+        color: rgb(224, 241, 241);
+        letter-spacing: 10px;
+        margin-top: 60px;
+        }
+        // .decs{
+        //     display: flex;
+        //     flex-direction: row;
+        //     justify-content: space-between;
+        // }
+        .job{
+            margin-top: 140px;
+            margin-right: 100px;
+            background-color: hsl(236, 33%, 92%);
+            padding: 10px;
+            border-radius: 10px;
+            height: 30px;
+            width: 400px;
+            .form{
+                display: flex;
+                padding-left: 10px;
+                padding-bottom: 0;
+                input{
+                    border: none;
+                    outline: none;
+                    background-color: hsl(236, 33%, 92%);
+                    // width: 300px;
+                    // height: 30px;
+                    border-radius: 20px;
+                    padding-left: 10px;
+                }
+                button{
+                    background-color: hsl(235, 16%, 14%);
+                    color: white;
+                    border: none;
+                    height: 30px;
+                    width: 80px;
+                    border-radius: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+}
