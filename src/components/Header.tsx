@@ -27,13 +27,18 @@ function Header({ addTodo }: HeaderProps) {
     }}
     >
        <h1>TODO</h1>
+       
+       <div className="job">
+       <input type='radio'/>
       <input
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Add a new todo"
+        placeholder="create a new todo ...."
       />
       <button onClick={handleAddTodo}>Add</button>
+      </div>
+      
     </header>
   );
 }

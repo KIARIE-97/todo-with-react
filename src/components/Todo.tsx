@@ -31,13 +31,13 @@ function Todo({todos, deleteTodo, itemsLeft}: TodoProps) {
       <div className="footer">
         <div className="items-left">{itemsLeft} items left</div>
       </div>
-      <div className="navigate">
+      {/* <div className="navigate">
         <a href="#">All</a>
         <a href="#">Active</a>
         <a href="#">Completed</a>
-      </div>
+      </div> */}
       <div className="clear_completed">
-        <button>Clear</button>
+        {/* <button>Clear</button> */}
         <button>reset</button>
       </div>
     </div>

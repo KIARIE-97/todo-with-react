@@ -20,6 +20,19 @@
             margin-bottom: 10px;
             padding: 20px;
             font-weight: 500;
+            
+            button{
+                background-color: white;
+                border: 1px solid rgb(150, 88, 162);
+                color: rgb(182, 175, 175);
+                font-weight: 500;
+                padding: 10px 30px;
+                border-radius: 5px;
+                margin-left: 70px;
+                &:hover{
+                    background-color: rgb(168, 85, 131);
+                
+            }
         }
             .Active{
                 margin-bottom: 10px;
@@ -32,7 +45,6 @@
     .footer{
         display: flex;
         gap: 50px;
-        /* justify-content: space-evenly;/ */
         margin-top: 20px;
         margin-bottom: 20px;
         margin-left: 10px;
@@ -40,10 +52,12 @@
         color: rgb(141, 129, 129);
         .navigate{
             display: flex;
+            flex-direction: row;
             gap: 10px;
             justify-content: space-between;
             a{
                 text-decoration: none;
+                margin-left: 50px;
                 color: rgb(134, 128, 128);
                 font-weight: 500;
                 &:hover{
@@ -52,21 +66,21 @@
             }
            
         }
-        .clear_completed{
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            button{
-                background-color: white;
-                border: none;
-                color: rgb(134, 128, 128);
-                font-weight: 500;
-                &:hover{
-                    color: rgb(248, 89, 10);
-                }
+    }
+    .clear_completed{
+        margin-top: 20px;
+        margin-left: 100px;
+        button{
+            background-color: white;
+            border: 1px solid rgb(150, 88, 162);
+            color: rgb(182, 175, 175);
+            font-weight: 500;
+            padding: 10px 30px;
+            border-radius: 5px;
+            &:hover{
+                background-color: rgb(168, 85, 131);
             }
         }
-
     }
 
-}
+}}
