@@ -12,7 +12,8 @@ import Todo from './components/Todo'
   }
   type Action = { type: 'addTodo'; text: string } 
   | { type: 'updateTodo'; id: number } 
-  | { type: 'delete'; id: number }
+  | { type: 'delete'; id: number } 
+  |  {type: 'reset'}
 
   const initialState: Todo[] = [
     { id: 1, text: 'complete online javascript course', completed: false },
@@ -39,6 +40,9 @@ import Todo from './components/Todo'
         )
       case 'delete':
         return state.filter(todo => todo.id !== action.id)
+      case 'reset':
+        return state.filter(todo => todo.completed === false)
+
       default:
         return state
     }
@@ -54,6 +58,9 @@ import Todo from './components/Todo'
     const deleteTodo = (id: number) => {
       dispatch({ type: 'delete', id })
     }
+    const resetTodo = () => {
+      dispatch({type: 'reset'})
+    }
     const itemsLeft = todos.filter(todo => !todo.completed).length
     return (
       <>
@@ -62,6 +69,7 @@ import Todo from './components/Todo'
           todos={todos}
           updateTodo={updateTodo}
           deleteTodo={deleteTodo}
+          resetTodo={resetTodo}
           itemsLeft={itemsLeft}
         />
       </>

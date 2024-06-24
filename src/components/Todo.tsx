@@ -12,9 +12,10 @@ interface TodoProps {
   updateTodo: (id: number) => void;
   deleteTodo: (id: number) => void;
   itemsLeft: number;
+  resetTodo: () => void;
 }
 
-function Todo({todos, deleteTodo, itemsLeft}: TodoProps) {
+function Todo({todos, deleteTodo, itemsLeft, resetTodo}: TodoProps) {
   return (
     <div className="container">
       <div className="All">
@@ -24,21 +25,19 @@ function Todo({todos, deleteTodo, itemsLeft}: TodoProps) {
                    checked={todo.completed}/>
 
             <label>{todo.text}</label>
+            <div className="btn">
             <button onClick={() => deleteTodo(todo.id)}>clear</button>
+          </div>
           </div>
         ))}
       </div>
       <div className="footer">
         <div className="items-left">{itemsLeft} items left</div>
-      </div>
-      {/* <div className="navigate">
-        <a href="#">All</a>
-        <a href="#">Active</a>
-        <a href="#">Completed</a>
-      </div> */}
+      
       <div className="clear_completed">
-        {/* <button>Clear</button> */}
-        <button>reset</button>
+       
+        <button onClick={resetTodo}>reset</button>
+      </div>
       </div>
     </div>
   );
