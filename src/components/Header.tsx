@@ -1,6 +1,7 @@
 // 
 import  { useState } from 'react';
 import bgImage from '../assets/images/bg-desktop-dark.jpg';
+import './header.scss'
 
 interface HeaderProps {
   addTodo: (text: string) => void;
@@ -17,6 +18,7 @@ function Header({ addTodo }: HeaderProps) {
   };
 
   return (
+    <>
     <header
     style={{
       backgroundImage: `url(${bgImage})`,
@@ -40,6 +42,7 @@ function Header({ addTodo }: HeaderProps) {
       </div>
       
     </header>
+    </>
   );
 }
 

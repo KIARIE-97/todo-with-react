@@ -1,11 +1,12 @@
-.header{
-    background-image:url("../assets/images/bg-desktop-dark.jpg") ;
+header{
+    // background-image:url("../assets/images/bg-desktop-dark.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     margin-bottom: 20px;
-    height: 500px;
+    height: 300px;
     h1 {
         font-size: 40px;
         font-weight: 700;
@@ -26,6 +27,7 @@
             border-radius: 10px;
             height: 30px;
             width: 400px;
+            gap: 10px;
             .form{
                 display: flex;
                 padding-left: 10px;
@@ -39,15 +41,17 @@
                     border-radius: 20px;
                     padding-left: 10px;
                 }
-                button{
-                    background-color: hsl(235, 16%, 14%);
-                    color: white;
-                    border: none;
-                    height: 30px;
-                    width: 80px;
-                    border-radius: 20px;
-                    cursor: pointer;
-                }
+               
+            }
+            button{
+                background-color: hsl(235, 16%, 14%);
+                color: white;
+                border: none;
+                height: 30px;
+                width: 80px;
+                border-radius: 20px;
+                margin-left:10px;
+                cursor: pointer;
             }
         }
 }
