@@ -15,15 +15,16 @@ interface TodoProps {
   resetTodo: () => void;
 }
 
-function Todo({todos, deleteTodo, itemsLeft, resetTodo}: TodoProps) {
+function Todo({todos, deleteTodo, itemsLeft, resetTodo, updateTodo}: TodoProps) {
   return (
     <div className="container">
       <div className="All">
         {todos.map((todo) => (
           <div key={todo.id} className='Completed'>
-            <input type="radio" 
+            <input className='round_checkbox' type="checkbox" onChange={() => updateTodo(todo.id)} 
                    checked={todo.completed}/>
 
+            <label className='L' htmlFor={`checkbox-${todo.id}`}></label>
             <label>{todo.text}</label>
             <div className="btn">
             <button onClick={() => deleteTodo(todo.id)}>clear</button>

@@ -3,17 +3,17 @@ import  { useState } from 'react';
 import bgImage from '../assets/images/bg-desktop-dark.jpg';
 import './header.scss'
 
-interface HeaderProps {
+interface TIHeader {
   addTodo: (text: string) => void;
 }
 
-function Header({ addTodo }: HeaderProps) {
+function Header({ addTodo }: TIHeader) {
   const [inputValue, setInputValue] = useState('');
 
   const handleAddTodo = () => {
     if (inputValue.trim()) {
       addTodo(inputValue);
-      setInputValue('');
+      setInputValue('');// this will clear the input field after adding the todo
     }
   };
 

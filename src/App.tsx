@@ -1,9 +1,9 @@
-import {useReducer} from 'react'
+import {useReducer, useEffect} from 'react'
 import './App.scss'
 import Header from './components/Header'
 import Todo from './components/Todo'
-// import Body from'./components/b'
-
+import useLocalStorage from './Hooks/useLocalStorage'
+import { act } from 'react-dom/test-utils'
 
   interface Todo {
     id: number
@@ -13,7 +13,7 @@ import Todo from './components/Todo'
   type Action = { type: 'addTodo'; text: string } 
   | { type: 'updateTodo'; id: number } 
   | { type: 'delete'; id: number } 
-  |  {type: 'reset'}
+  |  {type: 'reset'; initialTodos: Todo[]}
 
   const initialState: Todo[] = [
     { id: 1, text: 'complete online javascript course', completed: false },
@@ -41,14 +41,26 @@ import Todo from './components/Todo'
       case 'delete':
         return state.filter(todo => todo.id !== action.id)
       case 'reset':
-        return state.filter(todo => todo.completed === false)
+        return action.initialTodos
 
       default:
         return state
     }
   }
+
+
+
   function App() {
-    const [todos, dispatch] = useReducer(todoReducer, initialState)
+   
+    const[storedTodos, setStoredTodos] = useLocalStorage<Todo[]>('todos', initialState)
+    const [todos, dispatch] = useReducer(todoReducer, storedTodos)
+    // console.log(storedTodos)
+
+    useEffect(() => {
+      setStoredTodos(todos) // set the todos to local storage
+    }, [todos, setStoredTodos]) // this will run when todos or setStoredTodos changes
+
+    console.log(storedTodos)
     const addTodo = (text: string) => {
       dispatch({ type: 'addTodo', text })
     }
@@ -59,7 +71,7 @@ import Todo from './components/Todo'
       dispatch({ type: 'delete', id })
     }
     const resetTodo = () => {
-      dispatch({type: 'reset'})
+      dispatch({ type: 'reset', initialTodos: initialState})
     }
     const itemsLeft = todos.filter(todo => !todo.completed).length
     return (
